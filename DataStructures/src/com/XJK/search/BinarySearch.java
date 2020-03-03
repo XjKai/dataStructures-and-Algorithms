@@ -37,6 +37,8 @@ public class BinarySearch {
 		int mid = (right + left)/2;
 		if(arr[mid] == num) {
 			list.add(mid);
+			
+			//这里是输出目标数据周围重复的目标数据
 			int mid_l = mid-1;
 			int mid_r = mid+1;
 			//如果目标数字在数据中重复出现的话，一定是连续的，所以要向左向右查询下是否还有目标数据
@@ -48,6 +50,7 @@ public class BinarySearch {
 				list.add(mid_r);
 				mid_r++;
 			}
+			
 			return;
 		}else if (arr[mid] < num && left != right) {     //右递归，查找到left == right，还没找到，就不递归了
 			search(list, arr, mid + 1, right, num);
@@ -78,6 +81,7 @@ public class BinarySearch {
 			List<Integer> list = new ArrayList<Integer>();
 			list.add(mid);
 			
+			//这里是输出目标数据周围重复的目标数据
 			int mid_l = mid-1;
 			int mid_r = mid+1;
 			while(mid_l >= 0 && arr[mid_l] == num) {    //向左查找，是否还存在目标数据
@@ -88,6 +92,8 @@ public class BinarySearch {
 				list.add(mid_r);
 				mid_r++;
 			}
+			
+			
 			return list;
 		}
 		
